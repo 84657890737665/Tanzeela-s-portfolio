@@ -1,0 +1,42 @@
+export const projectsData = [
+  {
+    id: 1,
+    title: "KaamYaar AI",
+    subtitle: "AI Service Orchestrator",
+    description: "An AI-powered service orchestrator built for Pakistan's informal economy — connecting gig workers with smart task routing, scheduling, and AI-driven matching.",
+    status: "Live",
+    icon: "🤖",
+    tags: ["Python", "FastAPI", "Gemini AI", "Google Cloud", "Agritech"],
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Sarsabz",
+    subtitle: "Agritech AI Platform",
+    description: "A digital and autonomous AI solution for Pakistan's agricultural sector — delivering smart crop insights, soil analysis, and field automation.",
+    status: "In Progress",
+    icon: "🌱",
+    tags: ["AI Agents", "Python", "GCP", "FastAPI"],
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "Physical AI & Humanoid Robotics",
+    subtitle: "E-Book",
+    description: "A comprehensive e-book exploring the frontier of Physical AI, embodied intelligence, and the rise of humanoid robotics systems.",
+    status: "Published",
+    icon: "📖",
+    tags: ["Research", "AI", "Robotics", "Writing"],
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "Taskflow",
+    subtitle: "Autonomous Agent + Chatbot",
+    description: "An intelligent task management system powered by autonomous agents and a conversational chatbot — schedule, delegate, and track tasks through natural language.",
+    status: "In Progress",
+    icon: "✅",
+    tags: ["Agentic AI", "Chatbot", "LangChain", "React"],
+    featured: false,
+  }
+];

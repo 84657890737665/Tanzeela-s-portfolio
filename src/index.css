@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-aqua-light: #7EF5F4;
+  --color-aqua: #00C9C8;
+  --color-aqua-dark: #008B8A;
+  --color-cloud: #F0FAFA;
+  --color-teal-dark: #0D2B2B;
+  --color-teal-muted: #5A8A8A;
+
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --shadow-soft: 0 4px 20px rgba(0, 201, 200, 0.12);
+  --shadow-glow: 0 0 24px rgba(0, 201, 200, 0.35);
+  --shadow-card: 0 8px 40px rgba(0, 201, 200, 0.16);
+
+  --radius-bento: 20px;
+}
+
+:root {
+  --shadow-sm: 0 2px 8px rgba(0, 201, 200, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 201, 200, 0.12);
+  --shadow-lg: 0 8px 40px rgba(0, 201, 200, 0.16);
+  --shadow-hover: 0 12px 48px rgba(0, 201, 200, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background-color: #F0FAFA;
+  color: #0D2B2B;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0FAFA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8EEEE;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00C9C8;
+}
+
+/* Custom styles for glowing details */
+.glow-effect:hover {
+  box-shadow: 0 0 24px rgba(0, 201, 200, 0.45);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00C9C8 0%, #008B8A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Bento Card glass effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
