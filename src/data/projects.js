@@ -6,7 +6,7 @@ export const projectsData = [
     description: "An AI-powered service orchestrator built for Pakistan's informal economy — connecting gig workers with smart task routing, scheduling, and AI-driven matching.",
     status: "Live",
     icon: "🤖",
-    tags: ["Python", "FastAPI", "Gemini AI", "Google Cloud"],
+    tags: ["Python", "FastAPI", "Gemini AI", "Google Cloud" , "AI Agents"],
     featured: true,
   },
   {
