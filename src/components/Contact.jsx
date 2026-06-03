@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <section 
       id="contact" 
-      className="w-full py-24 md:py-32 px-6 md:px-12 bg-cloud flex justify-center items-center overflow-hidden"
+      className="w-full py-24 md:py-32 px-4 md:px-8 xl:px-16 bg-cloud flex justify-center items-center overflow-hidden"
     >
       <div className="w-full max-w-5xl flex flex-col items-center">
         {/* Section Header */}
@@ -19,7 +19,7 @@ export default function Contact() {
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-tealMuted mb-3">
             contact
           </span>
-          <h2 className="font-display font-black text-4xl sm:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
+          <h2 className="font-display font-black text-4xl md:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
             Let's Build <span className="text-gradient">Something.</span>
           </h2>
         </div>
@@ -43,7 +43,7 @@ export default function Contact() {
             whileHover={{ scale: 1.03, boxShadow: "0 0 24px rgba(0, 201, 200, 0.45)" }}
             whileTap={{ scale: 0.98 }}
             onClick={handleEmailClick}
-            className="flex items-center gap-3 bg-gradient-to-r from-aqua to-aqua-dark text-white font-body font-semibold px-8 py-4 rounded-full cursor-pointer transition-all duration-300 shadow-md mb-8 select-none"
+            className="flex items-center justify-center gap-3 bg-gradient-to-r from-aqua to-aqua-dark text-white font-body font-semibold px-8 py-4 rounded-full cursor-pointer transition-all duration-300 shadow-md mb-8 select-none w-full md:w-auto min-h-[44px]"
           >
             <Mail size={18} />
             <span className="text-sm sm:text-base">tanzeelaarshad320@gmail.com</span>

@@ -24,7 +24,7 @@ export default function Education() {
   return (
     <section 
       id="education" 
-      className="w-full py-24 md:py-32 px-6 md:px-12 bg-white flex justify-center items-center overflow-hidden"
+      className="w-full py-24 md:py-32 px-4 md:px-8 xl:px-16 bg-white flex justify-center items-center overflow-hidden"
     >
       <div className="w-full max-w-5xl flex flex-col items-start">
         {/* Section Header */}
@@ -32,7 +32,7 @@ export default function Education() {
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-tealMuted mb-3">
             education
           </span>
-          <h2 className="font-display font-black text-4xl sm:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
+          <h2 className="font-display font-black text-4xl md:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
             Where I <span className="text-gradient">Learn.</span>
           </h2>
         </div>

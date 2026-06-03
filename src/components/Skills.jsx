@@ -24,7 +24,7 @@ export default function Skills() {
   return (
     <section 
       id="skills" 
-      className="w-full py-24 md:py-32 px-6 md:px-12 bg-cloud flex justify-center items-center overflow-hidden"
+      className="w-full py-24 md:py-32 px-4 md:px-8 xl:px-16 bg-cloud flex justify-center items-center overflow-hidden"
     >
       <div className="w-full max-w-5xl flex flex-col items-start">
         {/* Section Header */}
@@ -32,7 +32,7 @@ export default function Skills() {
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-tealMuted mb-3">
             skills
           </span>
-          <h2 className="font-display font-black text-4xl sm:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
+          <h2 className="font-display font-black text-4xl md:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
             My <span className="text-gradient">Toolkit.</span>
           </h2>
         </div>
@@ -45,8 +45,8 @@ export default function Skills() {
           viewport={{ once: true, margin: "-80px" }}
           className="w-full flex flex-col gap-6"
         >
-          {/* Main 3 Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Main Categories Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {skillsData.categories.map((category) => (
               <motion.div
                 key={category.id}

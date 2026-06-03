@@ -35,7 +35,7 @@ export default function Projects() {
   return (
     <section 
       id="projects" 
-      className="w-full py-24 md:py-32 px-6 md:px-12 bg-white flex justify-center items-center overflow-hidden"
+      className="w-full py-24 md:py-32 px-4 md:px-8 xl:px-16 bg-white flex justify-center items-center overflow-hidden"
     >
       <div className="w-full max-w-5xl flex flex-col items-start">
         {/* Section Header */}
@@ -43,7 +43,7 @@ export default function Projects() {
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-tealMuted mb-3">
             projects
           </span>
-          <h2 className="font-display font-black text-4xl sm:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
+          <h2 className="font-display font-black text-4xl md:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
             Things I've <span className="text-gradient">Built.</span>
           </h2>
         </div>

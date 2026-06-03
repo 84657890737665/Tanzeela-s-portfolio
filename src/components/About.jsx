@@ -35,7 +35,7 @@ export default function About() {
   return (
     <section 
       id="about" 
-      className="w-full py-24 md:py-32 px-6 md:px-12 bg-cloud flex justify-center items-center overflow-hidden"
+      className="w-full py-24 md:py-32 px-4 md:px-8 xl:px-16 bg-cloud flex justify-center items-center overflow-hidden"
     >
       <motion.div 
         variants={containerVariants}
@@ -52,7 +52,7 @@ export default function About() {
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-tealMuted mb-4">
             about
           </span>
-          <h2 className="font-display font-black text-[38px] sm:text-[48px] md:text-[56px] leading-[1.1] text-tealDark mb-6 selection:bg-aqua/20">
+          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-[56px] leading-[1.1] text-tealDark mb-6 selection:bg-aqua/20">
             Building the web <br />
             <span className="text-gradient">cinematically.</span>
           </h2>

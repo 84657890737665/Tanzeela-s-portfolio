@@ -106,7 +106,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="relative w-full h-screen bg-[#F0FAFA] overflow-hidden flex flex-col justify-center items-start px-6 md:px-16 lg:px-24"
+      className="relative w-full h-screen bg-[#F0FAFA] overflow-hidden flex flex-col justify-center items-start px-4 md:px-8 xl:px-16"
     >
       {/* Background Canvas Particles */}
       <canvas 
@@ -132,7 +132,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display font-extrabold text-[44px] sm:text-[64px] md:text-[96px] text-gradient selection:bg-aqua/20"
+            className="font-display font-extrabold text-4xl sm:text-5xl md:text-[64px] xl:text-[96px] text-gradient selection:bg-aqua/20"
           >
             Developer +
           </motion.h1>
@@ -140,7 +140,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display font-extrabold text-[44px] sm:text-[64px] md:text-[96px] text-gradient selection:bg-aqua/20"
+            className="font-display font-extrabold text-4xl sm:text-5xl md:text-[64px] xl:text-[96px] text-gradient selection:bg-aqua/20"
           >
             AI Engineer
           </motion.h1>
@@ -154,7 +154,7 @@ export default function Hero() {
           onClick={handleScrollToWork}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
-          className="px-8 py-3.5 bg-gradient-to-r from-aqua to-aqua-dark text-white font-body font-semibold text-sm rounded-full shadow-soft hover:shadow-glow transition-all duration-300 flex items-center gap-2 group cursor-pointer z-20"
+          className="px-8 py-3.5 bg-gradient-to-r from-aqua to-aqua-dark text-white font-body font-semibold text-sm rounded-full shadow-soft hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer z-20 w-full md:w-auto"
         >
           View My Work
           <motion.span

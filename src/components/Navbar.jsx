@@ -91,7 +91,7 @@ export default function Navbar() {
       initial="hidden"
       animate="visible"
       variants={navbarVariants}
-      className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
+      className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 md:px-8 xl:px-16"
     >
       <div className="w-full max-w-5xl glass-card flex items-center justify-between px-6 py-3 md:py-2.5 rounded-bento border border-aqua/20 shadow-soft transition-all duration-300">
         {/* Logo */}
