@@ -108,6 +108,25 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+
+              {/* View Project Button */}
+              {project.projectUrl && (
+                <motion.a
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-6 inline-flex items-center gap-2 self-start font-mono text-xs font-semibold uppercase tracking-widest text-aqua border border-aqua/30 px-5 py-2.5 rounded-full hover:bg-aqua hover:text-white hover:border-aqua hover:shadow-[0_0_18px_rgba(0,201,200,0.35)] transition-all duration-300"
+                >
+                  {project.projectType === "mobile-app" ? "Install App" : "View Project"}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </motion.a>
+              )}
             </motion.div>
           ))}
         </motion.div>

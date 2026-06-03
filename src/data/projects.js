@@ -6,8 +6,10 @@ export const projectsData = [
     description: "8 AI agents • Women Safety verification • Urdu/Roman Urdu support — built for Google AI Seekho 2026",
     status: "Live",
     icon: "🤖",
-    tags: ["Python", "FastAPI", "Gemini AI", "Google Cloud" , "Flutter" , "AI Agents"],
+    tags: ["Python", "FastAPI", "Gemini AI", "Google Cloud", "Flutter", "AI Agents"],
     featured: true,
+    projectUrl: "https://drive.google.com/file/d/1tpm8Ui7y6cR4HOmyGUQrWXOMPef6QSFC/view?usp=sharing",
+    projectType: "mobile-app",
   },
   {
     id: 2,
@@ -16,8 +18,10 @@ export const projectsData = [
     description: "A digital and autonomous AI solution for Pakistan's agricultural sector — delivering smart crop insights, soil analysis, and field automation.",
     status: "In Progress",
     icon: "🌱",
-    tags: ["AI Agents", "Python", "GCP", "FastAPI" , "Agritech"  , "Autonomous Systems" ,"Multilingual Support"],
+    tags: ["AI Agents", "Python", "GCP", "FastAPI", "Agritech", "Autonomous Systems", "Multilingual Support"],
     featured: false,
+    projectUrl: "",
+    projectType: "mobile-app",
   },
   {
     id: 3,
@@ -26,8 +30,10 @@ export const projectsData = [
     description: "A comprehensive e-book exploring the frontier of Physical AI, embodied intelligence, and the rise of humanoid robotics systems.",
     status: "Published",
     icon: "📖",
-    tags: ["Research", "AI", "Chatbot" , "Robotics", "Writing"],
+    tags: ["Research", "AI", "Chatbot", "Robotics", "Writing"],
     featured: false,
+    projectUrl: "https://ai-book-topaz.vercel.app/",
+    projectType: "webapp",
   },
   {
     id: 4,
@@ -36,7 +42,9 @@ export const projectsData = [
     description: "An intelligent task management system powered by autonomous agents and a conversational chatbot — schedule, delegate, and track tasks through natural language.",
     status: "In Progress",
     icon: "✅",
-    tags: ["Agentic AI", "Chatbot", "LangChain", "React" , "Python" , "FastAPI" , "AI Agent" , "Task Management"],
+    tags: ["Agentic AI", "Chatbot", "LangChain", "React", "Python", "FastAPI", "AI Agent", "Task Management"],
     featured: false,
+    projectUrl: "https://taskflow-seven-ivory.vercel.app/",
+    projectType: "webapp",
   }
 ];
