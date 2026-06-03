@@ -3,10 +3,10 @@ export const projectsData = [
     id: 1,
     title: "KaamYaar AI",
     subtitle: "AI Service Orchestrator",
-    description: "An AI-powered service orchestrator built for Pakistan's informal economy — connecting gig workers with smart task routing, scheduling, and AI-driven matching.",
+    description: "8 AI agents • Women Safety verification • Urdu/Roman Urdu support — built for Google AI Seekho 2026",
     status: "Live",
     icon: "🤖",
-    tags: ["Python", "FastAPI", "Gemini AI", "Google Cloud" , "AI Agents"],
+    tags: ["Python", "FastAPI", "Gemini AI", "Google Cloud" , "Flutter" , "AI Agents"],
     featured: true,
   },
   {
@@ -16,7 +16,7 @@ export const projectsData = [
     description: "A digital and autonomous AI solution for Pakistan's agricultural sector — delivering smart crop insights, soil analysis, and field automation.",
     status: "In Progress",
     icon: "🌱",
-    tags: ["AI Agents", "Python", "GCP", "FastAPI" , "Agritech"],
+    tags: ["AI Agents", "Python", "GCP", "FastAPI" , "Agritech"  , "Autonomous Systems" ,"Multilingual Support"],
     featured: false,
   },
   {
@@ -26,7 +26,7 @@ export const projectsData = [
     description: "A comprehensive e-book exploring the frontier of Physical AI, embodied intelligence, and the rise of humanoid robotics systems.",
     status: "Published",
     icon: "📖",
-    tags: ["Research", "AI", "Robotics", "Writing"],
+    tags: ["Research", "AI", "Chatbot" , "Robotics", "Writing"],
     featured: false,
   },
   {
@@ -36,7 +36,7 @@ export const projectsData = [
     description: "An intelligent task management system powered by autonomous agents and a conversational chatbot — schedule, delegate, and track tasks through natural language.",
     status: "In Progress",
     icon: "✅",
-    tags: ["Agentic AI", "Chatbot", "LangChain", "React"],
+    tags: ["Agentic AI", "Chatbot", "LangChain", "React" , "Python" , "FastAPI" , "AI Agent" , "Task Management"],
     featured: false,
   }
 ];
