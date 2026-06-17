@@ -2,15 +2,13 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-tealDark text-white/80 py-6 px-4 text-center font-mono text-xs select-none border-t border-white/5">
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
-        <span style={{ color: '#E8D5B7' }}> Built with ❤️ by</span>
-        <span className="text-aqua font-semibold tracking-wide uppercase font-display text-[13px]">
-          Tanzeela
-        </span>
-        <span className="hidden sm:inline">·</span>
-        <span style={{ color: '#E8D5B7' }}>2026</span>
-      </div>
+    <footer className="w-full py-8 px-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3" style={{ borderColor: "rgba(0,201,184,0.1)", background: "#0a1520" }}>
+      <span className="font-mono text-[11px] text-[#8BA3B8] uppercase tracking-wider">
+        © 2026 Tanzeela Arshad — Built with React + Vite
+      </span>
+      <span className="font-mono text-[11px]" style={{ color: "#00C9B8" }}>
+        Karachi, Pakistan 🇵🇰
+      </span>
     </footer>
   );
 }

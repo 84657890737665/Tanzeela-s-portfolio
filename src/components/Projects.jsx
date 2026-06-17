@@ -2,134 +2,95 @@ import React from "react";
 import { motion } from "framer-motion";
 import { projectsData } from "../data/projects";
 
-const getBadgeStyles = (status) => {
-  switch (status) {
-    case "Live":
-      return "bg-emerald-50 text-emerald-600 border-emerald-200/50";
-    case "Published":
-      return "bg-blue-50 text-blue-600 border-blue-200/50";
-    default:
-      return "bg-amber-50 text-amber-600 border-amber-200/50";
-  }
+const statusStyle = (s) => {
+  if (s === "Live") return { color: "#4ade80", background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.2)" };
+  if (s === "Published") return { color: "#60a5fa", background: "rgba(96,165,250,0.08)", border: "1px solid rgba(96,165,250,0.2)" };
+  if (s === "Coming Soon") return { color: "#00C9B8", background: "rgba(0,201,184,0.08)", border: "1px solid rgba(0,201,184,0.2)" };
+  return { color: "#f59e0b", background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" };
 };
 
 export default function Projects() {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.12
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 35 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.65, ease: "easeOut" }
-    }
-  };
-
   return (
-    <section 
-      id="projects" 
-      className="w-full py-24 md:py-32 px-4 md:px-8 xl:px-16 bg-white flex justify-center items-center overflow-hidden"
-    >
-      <div className="w-full max-w-5xl flex flex-col items-start">
-        {/* Section Header */}
-        <div className="flex flex-col items-start text-left mb-16">
-          <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-tealMuted mb-3">
-            projects
-          </span>
-          <h2 className="font-display font-black text-4xl md:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
-            Things I've <span className="text-gradient">Built.</span>
-          </h2>
-        </div>
-
-        {/* Bento Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="w-full grid grid-cols-1 md:grid-cols-2 gap-6"
+    <section id="projects" className="w-full py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-[#0a1520] flex justify-center">
+      <div className="w-full max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
         >
-          {projectsData.map((project) => (
+          <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#00C9B8]">projects</span>
+          <h2 className="font-display font-black text-4xl md:text-5xl text-[#E8F4F8] leading-[1.1] mt-3">
+            Things I've{" "}
+            <span style={{ background: "linear-gradient(135deg, #00C9B8, #00a89a)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              Built.
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {projectsData.map((p, i) => (
             <motion.div
-              key={project.id}
-              variants={cardVariants}
-              whileHover={{ 
-                y: -6, 
-                boxShadow: "0 12px 48px rgba(0, 201, 200, 0.18)",
-                borderColor: "rgba(0, 201, 200, 0.4)"
+              key={p.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -5, boxShadow: "0 16px 48px rgba(0,0,0,0.5)" }}
+              className={`relative flex flex-col p-7 rounded-2xl transition-all duration-300 ${p.featured ? "md:col-span-2" : ""}`}
+              style={{
+                background: "#0F2030",
+                border: p.featured ? "1px solid rgba(0,201,184,0.35)" : "1px solid rgba(0,201,184,0.12)",
+                boxShadow: p.featured ? "0 0 40px rgba(0,201,184,0.06)" : "none",
               }}
-              className={`relative bg-white rounded-bento border border-aqua/15 p-7 sm:p-8 flex flex-col justify-between transition-colors duration-300 ${
-                project.featured ? "md:col-span-2 border-l-4 border-l-aqua" : ""
-              }`}
             >
-              {/* Card Header Info */}
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  {/* Icon */}
-                  <span className="text-3xl filter drop-shadow-sm select-none" role="img" aria-label="Project icon">
-                    {project.icon}
-                  </span>
-                  
-                  {/* Status Badge */}
-                  <span className={`text-xs font-mono font-medium px-2.5 py-1 rounded-full border ${getBadgeStyles(project.status)}`}>
-                    {project.status}
+              {/* Featured accent line */}
+              {p.featured && (
+                <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl" style={{ background: "linear-gradient(90deg, #00C9B8, transparent)" }} />
+              )}
+
+              <div className="flex items-start justify-between mb-5">
+                <span className="text-3xl">{p.icon}</span>
+                <div className="flex items-center gap-2">
+                  {p.badge && (
+                    <span className="font-mono text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full" style={{ color: "#00C9B8", background: "rgba(0,201,184,0.08)", border: "1px solid rgba(0,201,184,0.2)" }}>
+                      {p.badge}
+                    </span>
+                  )}
+                  <span className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full" style={statusStyle(p.status)}>
+                    {p.status}
                   </span>
                 </div>
-
-                <div className="flex flex-col mb-4">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-tealMuted mb-0.5">
-                    {project.subtitle}
-                  </span>
-                  <h3 className="font-display font-black text-xl sm:text-2xl text-tealDark group-hover:text-aqua transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                </div>
-
-                <p className="font-body text-sm sm:text-base text-tealMuted leading-relaxed mb-8 max-w-2xl selection:bg-aqua/20">
-                  {project.description}
-                </p>
               </div>
 
-              {/* Tags Section */}
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {project.tags.map((tag, idx) => (
-                  <span 
-                    key={idx}
-                    className="font-mono text-xs font-medium text-aqua-dark bg-aqua/5 border border-aqua/10 px-3 py-1 rounded-full hover:bg-aqua/10 hover:border-aqua/20 transition-all duration-300"
-                  >
-                    {tag}
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#8BA3B8] mb-1">{p.subtitle}</span>
+              <h3 className="font-display font-black text-xl md:text-2xl text-[#E8F4F8] mb-3">{p.title}</h3>
+              <p className="font-body text-sm text-[#8BA3B8] leading-relaxed mb-6 flex-1">{p.description}</p>
+
+              <div className="flex flex-wrap gap-2 mb-5">
+                {p.tags.map((t, idx) => (
+                  <span key={idx} className="font-mono text-[10px] px-2.5 py-1 rounded-full" style={{ color: "#00C9B8", background: "rgba(0,201,184,0.06)", border: "1px solid rgba(0,201,184,0.15)" }}>
+                    {t}
                   </span>
                 ))}
               </div>
 
-              {/* View Project Button */}
-              {project.projectUrl && (
-                <motion.a
-                  href={project.projectUrl}
+              {p.projectUrl && (
+                <a
+                  href={p.projectUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-6 inline-flex items-center gap-2 self-start font-mono text-xs font-semibold uppercase tracking-widest text-aqua border border-aqua/30 px-5 py-2.5 rounded-full hover:bg-aqua hover:text-white hover:border-aqua hover:shadow-[0_0_18px_rgba(0,201,200,0.35)] transition-all duration-300"
+                  className="self-start font-mono text-[10px] uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-300"
+                  style={{ color: "#00C9B8", border: "1px solid rgba(0,201,184,0.3)" }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#00C9B8"; e.currentTarget.style.color = "#0D1B2A"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#00C9B8"; }}
                 >
-                  {project.projectType === "mobile-app" ? "Install App" : "View Project"}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                    <polyline points="15 3 21 3 21 9"/>
-                    <line x1="10" y1="14" x2="21" y2="3"/>
-                  </svg>
-                </motion.a>
+                  View Project →
+                </a>
               )}
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

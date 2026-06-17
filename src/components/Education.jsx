@@ -3,121 +3,66 @@ import { motion } from "framer-motion";
 import { educationData } from "../data/education";
 
 export default function Education() {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 35 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: "easeOut" }
-    }
-  };
-
   return (
-    <section 
-      id="education" 
-      className="w-full py-24 md:py-32 px-4 md:px-8 xl:px-16 bg-white flex justify-center items-center overflow-hidden"
-    >
-      <div className="w-full max-w-5xl flex flex-col items-start">
-        {/* Section Header */}
-        <div className="flex flex-col items-start text-left mb-16">
-          <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-tealMuted mb-3">
-            education
-          </span>
-          <h2 className="font-display font-black text-4xl md:text-[48px] text-tealDark leading-[1.1] selection:bg-aqua/20">
-            Where I <span className="text-gradient">Learn.</span>
+    <section id="education" className="w-full py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-[#0a1520] flex justify-center">
+      <div className="w-full max-w-6xl">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+          <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#00C9B8]">education</span>
+          <h2 className="font-display font-black text-4xl md:text-5xl text-[#E8F4F8] leading-[1.1] mt-3">
+            Where I{" "}
+            <span style={{ background: "linear-gradient(135deg, #00C9B8, #00a89a)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              Learned.
+            </span>
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Bento Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="w-full grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
-          {educationData.map((edu) => (
+        <div className="flex flex-col gap-5">
+          {educationData.map((ed, i) => (
             <motion.div
-              key={edu.id}
-              variants={cardVariants}
-              whileHover={{ 
-                y: -6, 
-                boxShadow: "0 12px 48px rgba(0, 201, 200, 0.18)",
-                borderColor: "rgba(0, 201, 200, 0.35)"
-              }}
-              className="bg-white rounded-bento border border-aqua/15 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300"
+              key={ed.id}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12 }}
+              whileHover={{ x: 4 }}
+              className="flex flex-col md:flex-row gap-6 p-7 rounded-2xl transition-all duration-300"
+              style={{ background: "#0F2030", border: "1px solid rgba(0,201,184,0.12)" }}
             >
-              <div>
-                {/* Institution & Icon */}
-                <div className="flex items-center gap-3.5 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-cloud border border-aqua/15 flex items-center justify-center text-2xl filter drop-shadow-sm select-none">
-                    {edu.icon}
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <h3 className="font-display font-bold text-base text-tealDark leading-snug">
-                      {edu.institution}
-                    </h3>
-                    {edu.organizers && (
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-tealMuted mt-0.5">
-                        {edu.organizers}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Program Info */}
-                <div className="flex flex-col mb-6">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-tealMuted mb-1">
-                    Program / Track
-                  </span>
-                  <p className="font-body font-bold text-sm text-tealDark leading-relaxed">
-                    {edu.program}
-                  </p>
-                  {edu.role && (
-                    <span className="font-mono text-xs font-semibold text-aqua-dark mt-1">
-                      {edu.role}
-                    </span>
-                  )}
-                </div>
-
-                {/* Details List */}
-                <div className="flex flex-col gap-2.5 mb-6">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-tealMuted">
-                    Highlights & Curriculum
-                  </span>
-                  <div className="flex flex-col gap-2">
-                    {edu.details.map((detail, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5">
-                        <span className={`text-[13px] mt-0.5 select-none ${detail.completed ? "text-aqua" : "text-tealMuted/50"}`}>
-                          {detail.completed ? "✓" : "○"}
-                        </span>
-                        <span className={`font-body text-xs leading-normal ${detail.completed ? "text-tealDark font-medium" : "text-tealMuted/60"}`}>
-                          {detail.text} {!detail.completed && <span className="font-mono text-[9px] italic bg-aqua/5 px-1 rounded">(in progress)</span>}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style={{ background: "rgba(0,201,184,0.08)", border: "1px solid rgba(0,201,184,0.2)" }}>
+                  {ed.icon}
                 </div>
               </div>
-
-              {/* Bottom Accent Highlight */}
-              {edu.highlight && (
-                <div className="font-mono text-[11px] font-semibold text-aqua-dark bg-aqua/5 border border-aqua/15 rounded-lg px-3 py-2 text-center select-none mt-auto">
-                  {edu.highlight}
+              <div className="flex-1">
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                  <div>
+                    <h3 className="font-display font-bold text-lg text-[#E8F4F8]">{ed.institution}</h3>
+                    <p className="font-body text-sm text-[#00C9B8] mt-0.5">{ed.program}</p>
+                    {ed.platform && <p className="font-mono text-[10px] text-[#8BA3B8] mt-1 uppercase tracking-wider">{ed.platform}</p>}
+                    {ed.organizers && <p className="font-mono text-[10px] text-[#8BA3B8] mt-1">{ed.organizers}</p>}
+                    {ed.role && <p className="font-mono text-[10px] text-[#00C9B8] mt-1 uppercase tracking-wider">{ed.role}</p>}
+                  </div>
                 </div>
-              )}
+                <div className="flex flex-wrap gap-2 mt-3 mb-3">
+                  {ed.details.map((d, idx) => (
+                    <span key={idx} className="font-mono text-[10px] px-2.5 py-1 rounded-full flex items-center gap-1.5"
+                      style={{
+                        color: d.completed ? "#00C9B8" : "#8BA3B8",
+                        background: d.completed ? "rgba(0,201,184,0.06)" : "rgba(255,255,255,0.03)",
+                        border: d.completed ? "1px solid rgba(0,201,184,0.2)" : "1px solid rgba(255,255,255,0.06)",
+                      }}
+                    >
+                      {d.completed ? "✓" : "◦"} {d.text}
+                    </span>
+                  ))}
+                </div>
+                {ed.highlight && (
+                  <p className="font-mono text-[11px] text-[#00C9B8] mt-3 border-t border-[rgba(0,201,184,0.1)] pt-3">{ed.highlight}</p>
+                )}
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

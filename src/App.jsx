@@ -10,23 +10,17 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="relative min-h-screen w-full bg-[#F0FAFA] overflow-x-hidden selection:bg-aqua/20 selection:text-aqua-dark">
-      {/* Floating Pill Bento Navbar */}
+    <div className="relative min-h-screen w-full bg-[#0D1B2A] overflow-x-hidden">
       <Navbar />
-
-      {/* Main Sections */}
       <Hero />
       <About />
       <Projects />
       <Skills />
       <Education />
       <Contact />
-
-      {/* Footer */}
       <Footer />
     </div>
   );
 }
 
 export default App;
-//
