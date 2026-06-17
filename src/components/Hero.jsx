@@ -213,15 +213,13 @@ export default function Hero() {
           />
 
           {/* Photo */}
-          <div className="relative w-[280px] h-[360px] sm:w-[320px] sm:h-[420px] md:w-[380px] md:h-[500px]">
+          <div className="relative w-[300px] h-[400px] sm:w-[360px] sm:h-[480px] md:w-[420px] md:h-[560px] flex items-end justify-center">
             <img
               src="/tanzeela.png"
               alt="Tanzeela Arshad"
-              className="w-full h-full object-cover object-top"
+              className="w-full h-auto object-contain"
               style={{
                 filter: "drop-shadow(0 0 30px rgba(0,201,184,0.20))",
-                maskImage: "linear-gradient(to top, transparent 0%, black 20%)",
-                WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 20%)",
               }}
               onError={(e) => {
                 // Fallback placeholder if photo not found
@@ -233,7 +231,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-              className="absolute top-6 -left-8 md:-left-12 font-mono text-[10px] uppercase tracking-wider px-3 py-2 rounded-xl"
+              className="absolute top-2 -left-4 md:-left-10 font-mono text-[10px] uppercase tracking-wider px-3 py-2 rounded-xl"
               style={{
                 background: "rgba(13,27,42,0.9)",
                 border: "1px solid rgba(0,201,184,0.3)",
@@ -249,7 +247,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-16 -right-6 md:-right-10 font-mono text-[10px] uppercase tracking-wider px-3 py-2 rounded-xl"
+              className="absolute bottom-32 -right-2 md:-right-8 font-mono text-[10px] uppercase tracking-wider px-3 py-2 rounded-xl"
               style={{
                 background: "rgba(13,27,42,0.9)",
                 border: "1px solid rgba(0,201,184,0.3)",
