@@ -3,60 +3,152 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0D1B2A;
-  --color-navy-light: #112236;
-  --color-navy-card: #0F2030;
-  --color-aqua: #00C9B8;
-  --color-aqua-dim: #00a89a;
-  --color-aqua-glow: rgba(0, 201, 184, 0.15);
-  --color-slate: #8BA3B8;
-  --color-white: #E8F4F8;
+  --color-black:     #000000;
+  --color-black-card:#0D0D0D;
+  --color-black-elevated: #141414;
+  --color-burgundy:  #6B1E2B;
+  --color-burgundy-light: #8B2535;
+  --color-cream:     #E8E1D3;
+  --color-cream-dim: #A09585;
+  --color-cream-dimmer: #6B6056;
 
   --font-display: "Syne", sans-serif;
-  --font-body: "Space Grotesk", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-body:    "Space Grotesk", sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
 
-  --shadow-glow: 0 0 40px rgba(0, 201, 184, 0.25);
-  --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.4);
-
+  --shadow-glow:  0 0 60px rgba(107,30,43,0.30);
+  --shadow-card:  0 8px 40px rgba(0,0,0,0.6);
   --radius-bento: 16px;
 }
 
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: auto; }
 
 body {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
-  background-color: #0D1B2A;
-  color: #E8F4F8;
+  background-color: #000000;
+  color: #E8E1D3;
   overflow-x: hidden;
+  cursor: none;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0D1B2A; }
-::-webkit-scrollbar-thumb { background: #00C9B8; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #00a89a; }
+/* ── Custom Cursor ── */
+#cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6B1E2B;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
 
+#cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(107,30,43,0.6);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s cubic-bezier(0.23, 1, 0.32, 1),
+              width 0.25s ease, height 0.25s ease,
+              border-color 0.2s ease, background 0.2s ease;
+}
+
+body:hover #cursor-dot { opacity: 1; }
+
+/* ── Noise Texture Overlay ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9990;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #6B1E2B; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #8B2535; }
+
+/* ── Text Gradient ── */
 .text-gradient {
-  background: linear-gradient(135deg, #00C9B8 0%, #00a89a 100%);
+  background: linear-gradient(135deg, #E8E1D3 0%, #6B1E2B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.neural-line {
-  stroke: rgba(0, 201, 184, 0.3);
+.text-gradient-burgundy {
+  background: linear-gradient(135deg, #8B2535 0%, #6B1E2B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+/* ── Glow Border ── */
 .glow-border {
-  border: 1px solid rgba(0, 201, 184, 0.2);
-  box-shadow: 0 0 20px rgba(0, 201, 184, 0.05);
+  border: 1px solid rgba(107,30,43,0.2);
+  box-shadow: 0 0 20px rgba(107,30,43,0.05);
+}
+.glow-border:hover {
+  border-color: rgba(107,30,43,0.45);
+  box-shadow: 0 0 30px rgba(107,30,43,0.12);
 }
 
-.glow-border:hover {
-  border-color: rgba(0, 201, 184, 0.4);
-  box-shadow: 0 0 30px rgba(0, 201, 184, 0.12);
+/* ── Animated gradient orbs ── */
+@keyframes orb-drift-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(40px, -30px) scale(1.08); }
+  66%  { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
 }
+@keyframes orb-drift-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(-50px, 40px) scale(1.05); }
+  66%  { transform: translate(30px, -20px) scale(0.92); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+.orb-1 { animation: orb-drift-1 18s ease-in-out infinite; }
+.orb-2 { animation: orb-drift-2 22s ease-in-out infinite; }
+
+/* ── Clip-path reveal ── */
+.clip-reveal {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.clip-reveal.revealed {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* ── Marquee ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 28s linear infinite; }
+
+/* ── Magnetic button base ── */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.3s ease;
+}
+
+/* ── Section divider ── */
+.section-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(107,30,43,0.3), transparent);
+}
+
+/* ── Neural line ── */
+.neural-line { stroke: rgba(107,30,43,0.35); }
