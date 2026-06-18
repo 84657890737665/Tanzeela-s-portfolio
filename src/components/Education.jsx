@@ -4,7 +4,7 @@ import { educationData } from "../data/education";
 
 export default function Education() {
   return (
-    <section id="education" className="w-full py-24 md:py-32 px-6 md:px-12 xl:px-20 flex justify-center"
+    <section id="education" className="w-full py-20 md:py-32 px-6 md:px-12 xl:px-20 flex justify-center"
       style={{ background: "#000000" }}>
       <div className="w-full max-w-6xl">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">

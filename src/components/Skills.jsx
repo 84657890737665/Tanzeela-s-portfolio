@@ -36,7 +36,7 @@ export default function Skills() {
       {/* Marquee strip */}
       <div className="w-full overflow-hidden mb-16 py-4"
         style={{ borderTop: "1px solid rgba(107,30,43,0.12)", borderBottom: "1px solid rgba(107,30,43,0.12)" }}>
-        <div className="marquee-track flex gap-6 whitespace-nowrap" style={{ width: "max-content" }}>
+        <div className="marquee-track flex gap-4 md:gap-6 whitespace-nowrap" style={{ width: "max-content" }}>
           {marqueeItems.map((s, i) => (
             <span key={i} className="font-mono text-[11px] uppercase tracking-widest px-4 py-2 rounded-full flex-shrink-0"
               style={{ color: i % 3 === 0 ? "#6B1E2B" : "#6B6056", border: "1px solid rgba(107,30,43,0.15)" }}>

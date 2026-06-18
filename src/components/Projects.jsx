@@ -37,7 +37,7 @@ function TiltCard({ children, featured, style, className }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full py-24 md:py-32 px-6 md:px-12 xl:px-20 flex justify-center"
+    <section id="projects" className="w-full py-20 md:py-32 px-6 md:px-12 xl:px-20 flex justify-center"
       style={{ background: "#000000" }}>
       <div className="w-full max-w-6xl">
         <motion.div
